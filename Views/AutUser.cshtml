@@ -1,0 +1,38 @@
+@model AppAcceso.Models.Usuario
+
+<h2>Registro de Usuario</h2>
+
+@using (Html.BeginForm("Registro", "Usuario", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="NombreUsuario">Nombre de Usuario:</label>
+        @Html.TextBoxFor(model => model.NombreUsuario, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.NombreUsuario, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label for="ClaveAcceso">Contraseña:</label>
+        @Html.PasswordFor(model => model.ClaveAcceso, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.ClaveAcceso, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label for="NivelAccesoId">Nivel de Acceso:</label>
+        @Html.DropDownListFor(model => model.NivelAccesoId, ViewBag.NivelesAcceso as SelectList, "Seleccione un nivel de acceso")
+        @Html.ValidationMessageFor(model => model.NivelAccesoId, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label for="ZonaAccesoId">Zona de Acceso:</label>
+        @Html.DropDownListFor(model => model.ZonaAccesoId, ViewBag.ZonaAcceso as SelectList, "Seleccione zona de acceso")
+        @Html.ValidationMessageFor(model => model.ZonaAccesoId, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

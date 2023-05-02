@@ -1,0 +1,22 @@
+
+{
+    "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "Usuario/Registro",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "AppAcceso": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "Usuario/Registro",
+      "applicationUrl": "http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
